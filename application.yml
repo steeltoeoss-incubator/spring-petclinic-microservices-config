@@ -24,6 +24,11 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: none
+  #STEELTOE ADDITIONS
+  tracing:
+    exporter:
+      zipkin:
+        useShortTraceIds: true
 
 # Spring Boot 1.5 makes actuator secure by default
 management.security.enabled: false
@@ -49,10 +54,20 @@ management:
     web:
       exposure:
         include: '*'
+    #STEELTOE ADDITIONS
+    actuator:
+      exposure:
+        include: [ "*" ]
   metrics:
     export:
       prometheus:
         enabled: true
+
+#STEELTOE ADDITIONS      
+eureka:
+  instance:
+    HealthCheckUrlPath: /actuator/health
+    HomePageUrlPath: /actuator
 
 ---
 spring:
