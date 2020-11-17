@@ -26,5 +26,4 @@ server:
 eureka:
   client:
     serviceUrl: http://discovery-server:8761/eureka/ #STEELTOE
-    #serviceUrl:
-    #  defaultZone: http://discovery-server:8761/eureka/ #SPRING
+    serviceUrl.defaultZone: http://discovery-server:8761/eureka/ #SPRING
