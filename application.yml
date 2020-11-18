@@ -86,6 +86,8 @@ spring:
 ---
 spring:
   profiles: docker
+  datasource:
+    url: jdbc:mysql://mysql-server:3306/petclinic?useSSL=false
 mysql:
   client:
     server: mysql-server
