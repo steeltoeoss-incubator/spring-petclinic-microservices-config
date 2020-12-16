@@ -88,6 +88,16 @@ spring:
   profiles: docker
   datasource:
     url: jdbc:mysql://mysql-server:3306/petclinic?useSSL=false
+  zipkin:
+    baseUrl: http://zipkin:9411
+  tracing:
+    exporter:
+      zipkin:
+        endpoint: http://zipkin:9411/api/v2/spans
+eureka:
+  client:
+    serviceUrl: http://discovery-server:8761/eureka/ #STEELTOE
+    serviceUrl.defaultZone: http://discovery-server:8761/eureka/ #SPRING
 mysql:
   client:
     server: mysql-server

@@ -14,16 +14,5 @@ eureka:
 ---
 spring:
   profiles: docker
-  zipkin:
-    baseUrl: http://tracing-server:9411
-  
-  tracing:
-    exporter:
-      zipkin:
-        endpoint: http://tracing-server:9411/api/v2/spans
 server:
   port: 8083
-eureka:
-  client:
-    serviceUrl: http://discovery-server:8761/eureka/ #STEELTOE
-    serviceUrl.defaultZone: http://discovery-server:8761/eureka/ #SPRING
