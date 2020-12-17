@@ -105,4 +105,4 @@ management:
   tracing:
     exporter:
       zipkin:
-        endpoint: http://tracing-server:9411/api/v2/spans
+        endpoint: http://zipkin:9411/api/v2/spans
