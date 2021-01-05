@@ -1,0 +1,12 @@
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
+    healthCheckUrl: http://${vcap.application.uris[0]}/actuator/health
+    metadata-map:
+      management.port: 80
+      applicationId: ${vcap.application.application_id}
+      instanceId: ${vcap.application.instance_index}
