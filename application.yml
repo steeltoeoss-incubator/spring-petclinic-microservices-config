@@ -75,6 +75,24 @@ mysql:
     password: petclinic
 ---
 spring:
+  profiles: tas
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    healthCheckUrl: http://${vcap.application.uris[0]}/actuator/health
+    healthCheckUrlPath: /actuator/health
+    metadata-map:
+      management.port: 80
+      applicationId: ${vcap.application.application_id}
+      instanceId: ${vcap.application.instance_index}
+---
+spring:
   profiles: mysql
   datasource:
     schema: classpath*:db/mysql/schema.sql
